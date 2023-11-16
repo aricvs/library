@@ -22,7 +22,7 @@ body {
   grid-template-rows: 1fr 1fr;
 }
 
-.book-container__add-book-btn {
+.new-book-container__add-book-btn {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   background-color: #142d4c;
@@ -35,10 +35,10 @@ body {
   height: 40px;
 }
 
-.book-container__add-book-btn:hover {
+.new-book-container__add-book-btn:hover {
   cursor: pointer;
 }
 
-.book-container__add-book-btn:active {
+.new-book-container__add-book-btn:active {
   background-color: #9fd3c7;
 }
