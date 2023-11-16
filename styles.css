@@ -29,6 +29,13 @@ body {
   flex-direction: column;
 }
 
+.new-book-container__author {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: inline-flex;
+  flex-direction: column;
+}
+
 .new-book-container__add-book-btn {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
