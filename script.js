@@ -10,3 +10,5 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(book) {
   myLibrary.push(book);
 }
+
+const placeholderBook = new Book("placeholder", "doesn't exist", 699, true);
