@@ -2,6 +2,10 @@
   font-family: sans-serif;
 }
 
+body {
+  background-color: #ececec;
+}
+
 .heading {
   text-align: center;
 }
