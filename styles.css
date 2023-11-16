@@ -29,4 +29,12 @@ body {
   display: grid;
   border: 1px solid red;
   height: 90%;
+  padding: 15px;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  overflow: auto;
+}
+
+.card {
+  border: 1px solid blue;
 }
