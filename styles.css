@@ -20,3 +20,11 @@ body {
   width: 100px;
   height: 40px;
 }
+
+.main-container__add-book-btn:hover {
+  cursor: pointer;
+}
+
+.main-container__add-book-btn:active {
+  background-color: #9fd3c7;
+}
