@@ -23,6 +23,8 @@ body {
 }
 
 .book-container__add-book-btn {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
   background-color: #142d4c;
   color: white;
   font-weight: bolder;
