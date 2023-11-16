@@ -9,3 +9,14 @@ body {
 .heading {
   text-align: center;
 }
+
+.main-container__add-book-btn {
+  background-color: #142d4c;
+  color: white;
+  font-weight: bolder;
+  font-size: 1rem;
+  border-style: none;
+  border-radius: 10px;
+  width: 100px;
+  height: 40px;
+}
