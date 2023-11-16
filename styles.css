@@ -49,6 +49,12 @@ body {
   width: 50%;
 }
 
+.pages-read__read {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: start;
+}
+
 .new-book-container__add-book-btn {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
