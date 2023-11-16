@@ -36,11 +36,17 @@ body {
   flex-direction: column;
 }
 
-.new-book-container__pages {
+.new-book-container__pages-read {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.pages-read__pages {
   display: inline-flex;
   flex-direction: column;
+  width: 50%;
 }
 
 .new-book-container__add-book-btn {
