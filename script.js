@@ -14,3 +14,12 @@ function addBookToLibrary(book) {
 // placeholder for testing constructor and add book functions
 const placeholderBook = new Book("placeholder", "doesn't exist", 699, true);
 addBookToLibrary(placeholderBook);
+
+function addBookCard() {
+  const addBookBtn = document.querySelector(".add-book-btn");
+  addBookBtn.addEventListener("click", () => {
+    console.log("test");
+  });
+}
+
+addBookCard();
