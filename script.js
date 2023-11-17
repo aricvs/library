@@ -46,7 +46,7 @@ function clickOutsideModal() {
   });
 }
 
-function loopLibrary() {
+function displayBookCards() {
   const mainContainer = document.querySelector(".main-container");
   myLibrary.forEach((book) => {
     const card = document.createElement("div");
@@ -106,4 +106,4 @@ function loopLibrary() {
 addBookModal();
 closeBtnModal();
 clickOutsideModal();
-loopLibrary();
+displayBookCards();
