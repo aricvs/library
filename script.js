@@ -70,7 +70,15 @@ function displayBookCards() {
     const checkboxLabel = document.createElement("label");
     const checkboxInput = document.createElement("input");
     checkboxInput.id = "read-checkbox";
+    checkboxLabel.setAttribute("for", "read-checkbox");
+    checkboxLabel.textContent = "Already read?";
     checkboxInput.setAttribute("type", "checkbox");
+    checkboxDiv.appendChild(checkboxLabel);
+    checkboxDiv.appendChild(checkboxInput);
+    card.appendChild(checkboxDiv);
+    if (book.read === true) {
+      checkboxInput.setAttribute("checked", "false");
+    }
 
     const cardRemoveBtn = document.createElement("button");
     cardRemoveBtn.textContent = "Remove";
