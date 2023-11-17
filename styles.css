@@ -26,7 +26,7 @@ body {
 }
 
 .modal-overlay {
-  /* display: none; */
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -51,6 +51,7 @@ body {
 .modal-box-close {
   align-self: flex-end;
   font-size: 2.5rem;
+  font-weight: bold;
 }
 
 .modal-box-close:hover {

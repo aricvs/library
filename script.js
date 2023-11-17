@@ -15,11 +15,31 @@ function addBookToLibrary(book) {
 const placeholderBook = new Book("placeholder", "doesn't exist", 699, true);
 addBookToLibrary(placeholderBook);
 
-function addBookCard() {
+function addBookModal() {
   const addBookBtn = document.querySelector(".add-book-btn");
+  const modal = document.querySelector(".modal-overlay");
   addBookBtn.addEventListener("click", () => {
-    console.log("test");
+    modal.style.display = "block";
   });
 }
 
-addBookCard();
+function closeBtnModal() {
+  const modal = document.querySelector(".modal-overlay");
+  const closeBtn = document.querySelector(".modal-box-close");
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+}
+
+function clickOutsideModal() {
+  const modal = document.querySelector(".modal-overlay");
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+}
+
+addBookModal();
+closeBtnModal();
+clickOutsideModal();
