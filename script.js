@@ -15,8 +15,15 @@ function addBookToLibrary(book) {
 }
 
 // placeholder for testing constructor and add book functions
-const placeholderBook = new Book("placeholder", "doesn't exist", 699, true);
+const placeholderBook = new Book("placeholder", "doesn't exist", 699, false);
 addBookToLibrary(placeholderBook);
+const placeholderBook2 = new Book(
+  "another one",
+  "also doesn't exist",
+  123,
+  true
+);
+addBookToLibrary(placeholderBook2);
 
 // opens modal with form to add book
 function addBookModal() {
@@ -65,7 +72,6 @@ function displayBookCards() {
     cardPages.textContent = book.pages;
     card.appendChild(cardPages);
 
-    // TODO: add conditional to add default state of read checkbokx
     const checkboxDiv = document.createElement("div");
     const checkboxLabel = document.createElement("label");
     const checkboxInput = document.createElement("input");
@@ -77,38 +83,19 @@ function displayBookCards() {
     checkboxDiv.appendChild(checkboxInput);
     card.appendChild(checkboxDiv);
     if (book.read === true) {
-      checkboxInput.setAttribute("checked", "false");
+      checkboxInput.setAttribute("checked", "true");
     }
 
     const cardRemoveBtn = document.createElement("button");
     cardRemoveBtn.textContent = "Remove";
+    cardRemoveBtn.classList = "remove-button";
     card.appendChild(cardRemoveBtn);
   });
 }
 
-// function addBookCard() {
-//   const mainContainer = document.querySelector(".main-container");
-//   const modal = document.querySelector(".modal-overlay");
-//   const addBtn = document.querySelector(".modal-submit");
+function removeBook() {}
 
-//   addBtn.addEventListener("click", () => {
-// const card = document.createElement("div");
-// card.classList.add("card");
-// mainContainer.appendChild(card);
-
-// const cardTitle = document.createElement("h2");
-// card.appendChild(cardTitle);
-
-// const cardAuthor = document.createElement("p");
-// const cardPages = document.createElement("p");
-
-// const checkboxDiv = document.createElement("div");
-// const checkboxLabel = document.createElement("label");
-// const checkboxInput = document.createElement("input");
-// checkboxInput.id = "read-checkbox";
-// checkboxInput.setAttribute("type", "checkbox");
-//   });
-// }
+// TODO: add a function to add books
 
 // function invocations
 addBookModal();
