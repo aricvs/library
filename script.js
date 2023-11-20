@@ -87,11 +87,14 @@ function addBook() {
     const newRead = readCheckbox.checked ? "Read" : "Not read";
     const newBook = new Book(newTitle, newAuthor, newPages, newRead);
     addBookToLibrary(newBook);
+    mainForm.style.display = "none";
+    addBookBtn.style.display = "block";
     clearTable();
     displayBooks();
   });
 }
 
+// clears all tables
 function clearTable() {
   tableBody.innerHTML = "";
 }
