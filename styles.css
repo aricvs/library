@@ -1,4 +1,4 @@
-/* color templates:
+/* color palettes:
 #233142
 #455d7a
 #f95959
@@ -14,4 +14,12 @@ body {
 
 .main__header {
   text-align: center;
+}
+
+.main__table {
+  margin: 0 auto;
+}
+
+.table__header {
+  font-weight: bold;
 }
