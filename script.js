@@ -1,7 +1,10 @@
+"use strict";
+
 // global array variable
 const myLibrary = [];
 
 // global DOM variables
+const tableHead = document.querySelector(".table__header");
 const tableBody = document.querySelector(".table__body");
 
 // book object constructor
@@ -26,24 +29,38 @@ addBookToLibrary(book2);
 // function to loop through library and display books as table columns
 function displayBooks() {
   myLibrary.forEach((book) => {
-    tableRow = document.createElement("tr");
+    const tableRow = document.createElement("tr");
     tableBody.appendChild(tableRow);
 
-    titleData = document.createElement("td");
+    const titleData = document.createElement("td");
     titleData.textContent = book.title;
     tableRow.appendChild(titleData);
 
-    authorData = document.createElement("td");
+    const authorData = document.createElement("td");
     authorData.textContent = book.author;
     tableRow.appendChild(authorData);
 
-    pagesData = document.createElement("td");
+    const pagesData = document.createElement("td");
     pagesData.textContent = book.pages;
     tableRow.appendChild(pagesData);
 
-    readData = document.createElement("td");
+    const readData = document.createElement("td");
     readData.textContent = book.read;
     tableRow.appendChild(readData);
+
+    const tableButtons = document.createElement("div");
+    tableButtons.classList.add("table__buttons");
+    tableRow.appendChild(tableButtons);
+
+    const readBtn = document.createElement("button");
+    readBtn.textContent = "Toggle read";
+    readBtn.classList.add("form__read-btn");
+    tableButtons.appendChild(readBtn);
+
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.classList.add("form__remove-btn");
+    tableButtons.appendChild(removeBtn);
   });
 }
 

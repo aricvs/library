@@ -41,3 +41,8 @@ tr:nth-child(even) {
 td {
   padding: 1rem;
 }
+
+.table__buttons {
+  display: flex;
+  gap: 1rem;
+}
