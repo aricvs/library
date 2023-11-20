@@ -48,7 +48,7 @@ function displayBooks() {
     readData.textContent = book.read;
     tableRow.appendChild(readData);
 
-    const tableButtons = document.createElement("div");
+    const tableButtons = document.createElement("td");
     tableButtons.classList.add("table__buttons");
     tableRow.appendChild(tableButtons);
 
