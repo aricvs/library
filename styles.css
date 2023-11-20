@@ -1,15 +1,5 @@
-/* color palettes:
-#233142
-#455d7a
-#f95959
-#e3e3e3 */
-
 * {
   font-family: sans-serif;
-}
-
-body {
-  background-color: #e3e3e3;
 }
 
 .main__header {
@@ -18,8 +8,21 @@ body {
 
 .main__table {
   margin: 0 auto;
+  background-color: #e7eaf6;
+  font-size: large;
+  border-collapse: collapse;
 }
 
 .table__header {
   font-weight: bold;
+  color: white;
+  background-color: #113f67;
+}
+
+tr:nth-child(even) {
+  background-color: #a2a8d3;
+}
+
+td {
+  padding: 1rem;
 }
