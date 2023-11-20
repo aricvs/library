@@ -47,7 +47,13 @@ function displayCards() {
     cardDiv.appendChild(cardPages);
 
     const cardRead = document.createElement("button");
-    cardRead.textContent = "Read";
+    if (book.read === true) {
+      cardRead.classList.add("card-read-yes");
+      cardRead.textContent = "Read: yes";
+    } else {
+      cardRead.classList.add("card-read-no");
+      cardRead.textContent = "Read: not yet";
+    }
     cardDiv.appendChild(cardRead);
 
     const cardRemove = document.createElement("button");
