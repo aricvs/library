@@ -76,6 +76,7 @@ function openMainForm() {
   });
 }
 
+// TODO: write clear all books function, close form after submission
 function addBook() {
   formSubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -86,8 +87,13 @@ function addBook() {
     const newRead = readCheckbox.checked ? "Read" : "Not read";
     const newBook = new Book(newTitle, newAuthor, newPages, newRead);
     addBookToLibrary(newBook);
+    clearTable();
     displayBooks();
   });
+}
+
+function clearTable() {
+  tableBody.innerHTML = "";
 }
 
 displayBooks();
