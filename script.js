@@ -94,17 +94,37 @@ function addBook() {
   });
 }
 
-// TODO: fix remove only once bug
+// TODO: fix bug, once all items in the table are removed, you can't toggle read
+// and remove anymore
 function removeBook() {
   const removeBtns = document.querySelectorAll(".form__remove-btn");
   removeBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const removeTitle =
         btn.parentElement.parentElement.firstChild.textContent;
-      console.log(removeTitle);
       const bookIdx = myLibrary.findIndex((book) => book.title === removeTitle);
       myLibrary.splice(bookIdx, 1);
       btn.parentElement.parentElement.innerHTML = "";
+    });
+  });
+}
+
+// toggle book status between read and unread
+function toggleRead() {
+  const readBtns = document.querySelectorAll(".form__read-btn");
+  readBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const readTitle = btn.parentElement.parentElement.firstChild.textContent;
+      const bookIdx = myLibrary.findIndex((book) => book.title === readTitle);
+      const readStatus = btn.parentElement.parentElement.childNodes[3];
+
+      if (myLibrary[bookIdx].read === "Read") {
+        myLibrary[bookIdx].read = "Not read";
+        readStatus.textContent = "Not read";
+      } else {
+        myLibrary[bookIdx].read = "Read";
+        readStatus.textContent = "Read";
+      }
     });
   });
 }
@@ -118,3 +138,4 @@ displayBooks();
 openMainForm();
 addBook();
 removeBook();
+toggleRead();
