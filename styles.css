@@ -82,12 +82,6 @@ body {
   margin: 0;
 }
 
-.card-read-yes {
-  background-color: green;
-  color: white;
-}
-
-.card-read-no {
-  background-color: red;
+.card-read {
   color: white;
 }

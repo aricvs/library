@@ -48,11 +48,13 @@ function displayCards() {
 
     const cardRead = document.createElement("button");
     if (book.read === true) {
-      cardRead.classList.add("card-read-yes");
+      cardRead.classList.add("card-read");
       cardRead.textContent = "Read: yes";
+      cardRead.style.backgroundColor = "green";
     } else {
-      cardRead.classList.add("card-read-no");
+      cardRead.classList.add("card-read");
       cardRead.textContent = "Read: not yet";
+      cardRead.style.backgroundColor = "red";
     }
     cardDiv.appendChild(cardRead);
 
@@ -60,6 +62,10 @@ function displayCards() {
     cardRemove.textContent = "Remove";
     cardDiv.appendChild(cardRemove);
   });
+}
+
+function toggleRead() {
+  const readButton = document.querySelectorAll(".card-read");
 }
 
 displayCards();
