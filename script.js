@@ -10,6 +10,7 @@ const modalTitle = document.querySelector("#modal-title");
 const modalAuthor = document.querySelector("#modal-author");
 const modalPages = document.querySelector("#modal-pages");
 const modalRead = document.querySelector("#modal-read");
+const modalSubmit = document.querySelector(".modal-submit");
 
 // book constructor
 function Book(title, author, pages, read) {
@@ -26,17 +27,25 @@ function addBookToLibrary(book) {
 
 // placeholder for testing constructor and add book functions
 const placeholderBook = new Book("placeholder", "doesn't exist", 699, false);
-addBookToLibrary(placeholderBook);
 const placeholderBook2 = new Book(
   "another one",
   "also doesn't exist",
   123,
   true
 );
+addBookToLibrary(placeholderBook);
 addBookToLibrary(placeholderBook2);
+
+// clears all cards on the main container
+function clearDisplay() {
+  while (mainContainer.firstChild) {
+    mainContainer.removeChild(mainContainer.lastChild);
+  }
+}
 
 // function to display all books as cards
 function displayCards() {
+  clearDisplay();
   myLibrary.forEach((book) => {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
@@ -77,30 +86,51 @@ function displayCards() {
 // opens modal with form to add book
 function addBookModal() {
   const addBookBtn = document.querySelector(".add-book-btn");
-  const modal = document.querySelector(".modal-overlay");
   addBookBtn.addEventListener("click", () => {
-    modal.style.display = "block";
+    modalOverlay.style.display = "block";
   });
 }
 
 // close modal via button
 function closeBtnModal() {
-  const modal = document.querySelector(".modal-overlay");
   const closeBtn = document.querySelector(".modal-box-close");
   closeBtn.addEventListener("click", () => {
     clearModal();
-    modal.style.display = "none";
+    modalOverlay.style.display = "none";
   });
 }
 
 // close modal via outside click
 function clickOutsideModal() {
-  const modal = document.querySelector(".modal-overlay");
   window.addEventListener("click", (event) => {
-    if (event.target === modal) {
+    if (event.target === modalOverlay) {
       clearModal();
-      modal.style.display = "none";
+      modalOverlay.style.display = "none";
     }
+  });
+}
+
+// add book and refreshes display
+function submitModal() {
+  modalSubmit.addEventListener("click", () => {
+    let readValue;
+    if (modalRead.checked === true) {
+      readValue = true;
+    } else {
+      readValue = false;
+    }
+
+    const newBook = new Book(
+      modalTitle.value,
+      modalAuthor.value,
+      modalPages.value,
+      readValue
+    );
+
+    addBookToLibrary(newBook);
+    clearModal();
+    modalOverlay.style.display = "none";
+    displayCards();
   });
 }
 
@@ -117,3 +147,4 @@ displayCards();
 addBookModal();
 closeBtnModal();
 clickOutsideModal();
+submitModal();
