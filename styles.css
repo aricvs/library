@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+.main__add-book-btn {
+  display: block;
+  margin: 0 auto;
+}
+
 .main__form {
   margin: 0 auto;
   display: flex;
