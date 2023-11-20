@@ -28,6 +28,7 @@ const placeholderBook2 = new Book(
 );
 addBookToLibrary(placeholderBook2);
 
+// function to display all books as cards
 function displayCards() {
   myLibrary.forEach((book) => {
     const cardDiv = document.createElement("div");
@@ -66,4 +67,36 @@ function displayCards() {
   });
 }
 
+// opens modal with form to add book
+function addBookModal() {
+  const addBookBtn = document.querySelector(".add-book-btn");
+  const modal = document.querySelector(".modal-overlay");
+  addBookBtn.addEventListener("click", () => {
+    modal.style.display = "block";
+  });
+}
+
+// close modal via button
+function closeBtnModal() {
+  const modal = document.querySelector(".modal-overlay");
+  const closeBtn = document.querySelector(".modal-box-close");
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+}
+
+// close modal via outside click
+function clickOutsideModal() {
+  const modal = document.querySelector(".modal-overlay");
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+}
+
+// function invocations
 displayCards();
+addBookModal();
+closeBtnModal();
+clickOutsideModal();
