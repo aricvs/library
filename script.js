@@ -76,7 +76,7 @@ function openMainForm() {
   });
 }
 
-// TODO: write clear all books function, close form after submission
+// submits new book from form data
 function addBook() {
   formSubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -94,6 +94,21 @@ function addBook() {
   });
 }
 
+// TODO: fix remove only once bug
+function removeBook() {
+  const removeBtns = document.querySelectorAll(".form__remove-btn");
+  removeBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const removeTitle =
+        btn.parentElement.parentElement.firstChild.textContent;
+      console.log(removeTitle);
+      const bookIdx = myLibrary.findIndex((book) => book.title === removeTitle);
+      myLibrary.splice(bookIdx, 1);
+      btn.parentElement.parentElement.innerHTML = "";
+    });
+  });
+}
+
 // clears all tables
 function clearTable() {
   tableBody.innerHTML = "";
@@ -102,3 +117,4 @@ function clearTable() {
 displayBooks();
 openMainForm();
 addBook();
+removeBook();
