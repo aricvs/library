@@ -6,6 +6,8 @@ const myLibrary = [];
 // global DOM variables
 const mainForm = document.querySelector(".main__form");
 const addBookBtn = document.querySelector(".main__add-book-btn");
+const readCheckbox = document.querySelector("#form__read");
+const formSubmitBtn = document.querySelector(".form__submit-button");
 const tableHead = document.querySelector(".table__header");
 const tableBody = document.querySelector(".table__body");
 
@@ -66,12 +68,28 @@ function displayBooks() {
   });
 }
 
-function addNewBook() {
+// show form to add new book
+function openMainForm() {
   addBookBtn.addEventListener("click", () => {
     addBookBtn.style.display = "none";
     mainForm.style.display = "flex";
   });
 }
 
+function addBook() {
+  formSubmitBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const newTitle = document.querySelector("#form__title").value;
+    const newAuthor = document.querySelector("#form__author").value;
+    const newPages = document.querySelector("#form__pages").value;
+    const newRead = readCheckbox.checked ? "Read" : "Not read";
+    const newBook = new Book(newTitle, newAuthor, newPages, newRead);
+    addBookToLibrary(newBook);
+    displayBooks();
+  });
+}
+
 displayBooks();
-addNewBook();
+openMainForm();
+addBook();
