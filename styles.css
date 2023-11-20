@@ -1,0 +1,17 @@
+/* color templates:
+#233142
+#455d7a
+#f95959
+#e3e3e3 */
+
+* {
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #e3e3e3;
+}
+
+.main__header {
+  text-align: center;
+}
