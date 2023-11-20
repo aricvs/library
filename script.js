@@ -1,6 +1,9 @@
 // global array of books
 const myLibrary = [];
 
+// global elements
+const mainContainer = document.querySelector(".main-container");
+
 // book constructor
 function Book(title, author, pages, read) {
   this.title = title;
@@ -25,80 +28,32 @@ const placeholderBook2 = new Book(
 );
 addBookToLibrary(placeholderBook2);
 
-// opens modal with form to add book
-function addBookModal() {
-  const addBookBtn = document.querySelector(".add-book-btn");
-  const modal = document.querySelector(".modal-overlay");
-  addBookBtn.addEventListener("click", () => {
-    modal.style.display = "block";
-  });
-}
-
-// close modal via button
-function closeBtnModal() {
-  const modal = document.querySelector(".modal-overlay");
-  const closeBtn = document.querySelector(".modal-box-close");
-  closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-}
-
-// close modal via outside click
-function clickOutsideModal() {
-  const modal = document.querySelector(".modal-overlay");
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  });
-}
-
-function displayBookCards() {
-  const mainContainer = document.querySelector(".main-container");
+function displayCards() {
   myLibrary.forEach((book) => {
-    const card = document.createElement("div");
-    card.classList.add("card");
-    mainContainer.appendChild(card);
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("card");
+    mainContainer.appendChild(cardDiv);
 
     const cardTitle = document.createElement("h2");
     cardTitle.textContent = book.title;
-    card.appendChild(cardTitle);
+    cardDiv.appendChild(cardTitle);
 
     const cardAuthor = document.createElement("p");
     cardAuthor.textContent = book.author;
-    card.appendChild(cardAuthor);
+    cardDiv.appendChild(cardAuthor);
 
     const cardPages = document.createElement("p");
     cardPages.textContent = book.pages;
-    card.appendChild(cardPages);
+    cardDiv.appendChild(cardPages);
 
-    const checkboxDiv = document.createElement("div");
-    const checkboxLabel = document.createElement("label");
-    const checkboxInput = document.createElement("input");
-    checkboxInput.id = "read-checkbox";
-    checkboxLabel.setAttribute("for", "read-checkbox");
-    checkboxLabel.textContent = "Already read?";
-    checkboxInput.setAttribute("type", "checkbox");
-    checkboxDiv.appendChild(checkboxLabel);
-    checkboxDiv.appendChild(checkboxInput);
-    card.appendChild(checkboxDiv);
-    if (book.read === true) {
-      checkboxInput.setAttribute("checked", "true");
-    }
+    const cardRead = document.createElement("button");
+    cardRead.textContent = "Read";
+    cardDiv.appendChild(cardRead);
 
-    const cardRemoveBtn = document.createElement("button");
-    cardRemoveBtn.textContent = "Remove";
-    cardRemoveBtn.classList = "remove-button";
-    card.appendChild(cardRemoveBtn);
+    const cardRemove = document.createElement("button");
+    cardRemove.textContent = "Remove";
+    cardDiv.appendChild(cardRemove);
   });
 }
 
-function removeBook() {}
-
-// TODO: add a function to add books
-
-// function invocations
-addBookModal();
-closeBtnModal();
-clickOutsideModal();
-displayBookCards();
+displayCards();
