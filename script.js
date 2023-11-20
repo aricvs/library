@@ -50,18 +50,14 @@ function displayCards() {
     const readDiv = document.createElement("div");
     cardDiv.appendChild(readDiv);
 
-    const cardRead = document.createElement("span");
-    cardRead.textContent = "Already read?: ";
-    readDiv.appendChild(cardRead);
-
-    const readYesNo = document.createElement("span");
-    book.read === false
-      ? (readYesNo.textContent = "Yes")
-      : (readYesNo.textContent = "No");
-    readDiv.appendChild(readYesNo);
-
     const toggleRead = document.createElement("button");
-    toggleRead.textContent = "Toggle read";
+    if (book.read === true) {
+      toggleRead.textContent = "Read";
+      toggleRead.style.backgroundColor = "green";
+    } else {
+      toggleRead.textContent = "Not read";
+      toggleRead.style.backgroundColor = "red";
+    }
     cardDiv.appendChild(toggleRead);
 
     const cardRemove = document.createElement("button");
@@ -70,16 +66,4 @@ function displayCards() {
   });
 }
 
-function toggleRead() {
-  const readButton = document.querySelectorAll(".card-read");
-  const cardTitle = document.querySelectorAll(".card-title");
-
-  readButton.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      console.log("test");
-    });
-  });
-}
-
 displayCards();
-toggleRead();
