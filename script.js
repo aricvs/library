@@ -35,6 +35,7 @@ function displayCards() {
     mainContainer.appendChild(cardDiv);
 
     const cardTitle = document.createElement("h2");
+    cardTitle.classList.add("card-title");
     cardTitle.textContent = book.title;
     cardDiv.appendChild(cardTitle);
 
@@ -46,17 +47,22 @@ function displayCards() {
     cardPages.textContent = book.pages;
     cardDiv.appendChild(cardPages);
 
-    const cardRead = document.createElement("button");
-    if (book.read === true) {
-      cardRead.classList.add("card-read");
-      cardRead.textContent = "Read: yes";
-      cardRead.style.backgroundColor = "green";
-    } else {
-      cardRead.classList.add("card-read");
-      cardRead.textContent = "Read: not yet";
-      cardRead.style.backgroundColor = "red";
-    }
-    cardDiv.appendChild(cardRead);
+    const readDiv = document.createElement("div");
+    cardDiv.appendChild(readDiv);
+
+    const cardRead = document.createElement("span");
+    cardRead.textContent = "Already read?: ";
+    readDiv.appendChild(cardRead);
+
+    const readYesNo = document.createElement("span");
+    book.read === false
+      ? (readYesNo.textContent = "Yes")
+      : (readYesNo.textContent = "No");
+    readDiv.appendChild(readYesNo);
+
+    const toggleRead = document.createElement("button");
+    toggleRead.textContent = "Toggle read";
+    cardDiv.appendChild(toggleRead);
 
     const cardRemove = document.createElement("button");
     cardRemove.textContent = "Remove";
@@ -66,6 +72,14 @@ function displayCards() {
 
 function toggleRead() {
   const readButton = document.querySelectorAll(".card-read");
+  const cardTitle = document.querySelectorAll(".card-title");
+
+  readButton.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      console.log("test");
+    });
+  });
 }
 
 displayCards();
+toggleRead();
