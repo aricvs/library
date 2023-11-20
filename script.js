@@ -4,6 +4,8 @@
 const myLibrary = [];
 
 // global DOM variables
+const mainForm = document.querySelector(".main__form");
+const addBookBtn = document.querySelector(".main__add-book-btn");
 const tableHead = document.querySelector(".table__header");
 const tableBody = document.querySelector(".table__body");
 
@@ -64,4 +66,12 @@ function displayBooks() {
   });
 }
 
+function addNewBook() {
+  addBookBtn.addEventListener("click", () => {
+    addBookBtn.style.display = "none";
+    mainForm.style.display = "flex";
+  });
+}
+
 displayBooks();
+addNewBook();
