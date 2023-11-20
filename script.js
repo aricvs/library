@@ -3,6 +3,13 @@ const myLibrary = [];
 
 // global elements
 const mainContainer = document.querySelector(".main-container");
+const modalOverlay = document.querySelector(".modal-overlay");
+const modalBox = document.querySelector(".modal-box");
+const modalBoxClose = document.querySelector(".modal-box-close");
+const modalTitle = document.querySelector("#modal-title");
+const modalAuthor = document.querySelector("#modal-author");
+const modalPages = document.querySelector("#modal-pages");
+const modalRead = document.querySelector("#modal-read");
 
 // book constructor
 function Book(title, author, pages, read) {
@@ -81,6 +88,7 @@ function closeBtnModal() {
   const modal = document.querySelector(".modal-overlay");
   const closeBtn = document.querySelector(".modal-box-close");
   closeBtn.addEventListener("click", () => {
+    clearModal();
     modal.style.display = "none";
   });
 }
@@ -90,9 +98,18 @@ function clickOutsideModal() {
   const modal = document.querySelector(".modal-overlay");
   window.addEventListener("click", (event) => {
     if (event.target === modal) {
+      clearModal();
       modal.style.display = "none";
     }
   });
+}
+
+// clear all modal forms
+function clearModal() {
+  modalTitle.value = "";
+  modalAuthor.value = "";
+  modalPages.value = "";
+  modalRead.checked = false;
 }
 
 // function invocations
