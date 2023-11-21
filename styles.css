@@ -67,3 +67,13 @@ button:active {
   background-color: #38598b;
   translate: 0 3px;
 }
+
+input {
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: 3px solid #a2a8d3;
+}
