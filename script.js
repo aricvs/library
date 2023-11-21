@@ -25,10 +25,10 @@ function addBookToLibrary(book) {
 }
 
 // placeholder books for testing
-const book1 = new Book("Worm", "Wildbow", 6800, "Read");
-const book2 = new Book("Three Body Problem", "Liu Cixin", 500, "Not read");
-addBookToLibrary(book1);
-addBookToLibrary(book2);
+// const book1 = new Book("Worm", "Wildbow", 6800, "Read");
+// const book2 = new Book("Three Body Problem", "Liu Cixin", 500, "Not read");
+// addBookToLibrary(book1);
+// addBookToLibrary(book2);
 
 // function to loop through library and display books as table columns
 function displayBooks() {
@@ -97,6 +97,8 @@ function addBook() {
 
     clearTable();
     displayBooks();
+    removeBook();
+    toggleRead();
   });
 }
 
@@ -141,7 +143,6 @@ function clearTable() {
   }
 }
 
-displayBooks();
 openMainForm();
 addBook();
 removeBook();
