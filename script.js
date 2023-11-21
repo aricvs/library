@@ -81,21 +81,26 @@ function addBook() {
   formSubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const newTitle = document.querySelector("#form__title").value;
-    const newAuthor = document.querySelector("#form__author").value;
-    const newPages = document.querySelector("#form__pages").value;
-    const newRead = readCheckbox.checked ? "Read" : "Not read";
-    const newBook = new Book(newTitle, newAuthor, newPages, newRead);
+    let newTitle = document.querySelector("#form__title").value;
+    let newAuthor = document.querySelector("#form__author").value;
+    let newPages = document.querySelector("#form__pages").value;
+    let newRead = readCheckbox.checked ? "Read" : "Not read";
+    let newBook = new Book(newTitle, newAuthor, newPages, newRead);
     addBookToLibrary(newBook);
+
     mainForm.style.display = "none";
     addBookBtn.style.display = "block";
+    document.querySelector("#form__title").value = "";
+    document.querySelector("#form__author").value = "";
+    document.querySelector("#form__pages").value = "";
+    readCheckbox.checked = false;
+
     clearTable();
     displayBooks();
   });
 }
 
-// TODO: fix bug, once all items in the table are removed, you can't toggle read
-// and remove anymore
+// remove book from library array and from display
 function removeBook() {
   const removeBtns = document.querySelectorAll(".form__remove-btn");
   removeBtns.forEach((btn) => {
@@ -131,7 +136,9 @@ function toggleRead() {
 
 // clears all tables
 function clearTable() {
-  tableBody.innerHTML = "";
+  while (tableBody.firstChild) {
+    tableBody.removeChild(tableBody.lastChild);
+  }
 }
 
 displayBooks();
